@@ -7,6 +7,7 @@
     <script src="components/loader.js"></script>
     <link rel="stylesheet" href="components/loader.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChPCj7Cytcjqw_Vv3NP2BAVrYXWs82M2M"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script>
     </script>
@@ -19,6 +20,8 @@
             <a href="#addPage" data-icon="plus" class="ui-btn-right" data-transition="slideup"></a>
         </header>
         <section data-role="content">
+          <ul id="memoryListView" data-role="listview" data-split-icon="delete" data-split-theme="b">
+          </ul>
         </section>
         <footer data-role="footer" data-position="fixed">
             <div data-role="navbar">
@@ -38,6 +41,8 @@
             <h1 id="hh1">思い出Map</h1>
         </header>
         <section data-role="content">
+          <br/>
+          <div id="mapPage_canvas" style="width:280px; height:280px;"></div>
         </section>
         <footer data-role="footer" data-position="fixed">
             <div data-role="navbar">
@@ -104,11 +109,42 @@
                 
             </textarea>
             <br />
+            <label for ="latitude">緯度:</label>
+            <input type="text" id="latitude" name="latitude" disabled="disabled" value=""/>
+            <label for ="longitude">経度:</label>
+            <input type="text" id="longitude" name="longitude" disabled="disabled" value=""/>
+            <a data-role="button" data-icon="info" id="getLocation">位置情報を取得する</a>
+            <br/>
             <a data-role="button" data-theme="b" data-icon="check" id="addSave">Save</a>
         </section>
     </div>
     
-    
+    <!-- 詳細ページ  -->
+    <div data-role="page" id="showPage">
+        <header data-role="header" data-position="fixed">
+            <a data-role="button" data-rel="back" data-icon="back">Back</a>
+            <h1></h1>
+        </header>
+        <section data-role="content">
+            <p>日時:</p>
+            <p id="showDatetime"></p>
+            <br/>
+            <p>感想</p>
+            <p id="showImpression"></p>
+            <p>地図:</p>
+            <div id="map_canvas" style="width: 250px; height: 250px; margin: 0 auto;"></div>
+        </section>
+        <footer data-role="footer" data-id="foot" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#topPage" data-icon="bars" data-transition="none">List</a></li>
+                    <li><a href="#mapPage" data-icon="star" data-transition="none">Map</a></li>
+                    <li><a href="#settingPage" data-icon="edit" data-transition="none">Setting</a></li>
+                    <li><a href="#aboutPage" data-icon="info" data-transition="none">About</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
     
 </body>
 </html>
